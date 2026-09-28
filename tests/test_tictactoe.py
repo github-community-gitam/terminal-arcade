@@ -52,3 +52,12 @@ def test_render_shows_numbers_for_empty_squares():
     output = ttt.render(ttt.new_board())
     for number in range(1, 10):
         assert str(number) in output
+
+
+def test_outcome_message_for_a_draw_does_not_expose_none():
+    assert ttt.outcome_message(None) == "  It's a draw.\n"
+
+
+def test_outcome_message_identifies_the_winner():
+    assert ttt.outcome_message(ttt.PLAYER) == "  You win!\n"
+    assert ttt.outcome_message(ttt.COMPUTER) == "  Computer wins!\n"

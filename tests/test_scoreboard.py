@@ -73,3 +73,46 @@ def test_the_scoreboard_table_includes_the_player_and_score():
     )
     assert "asha" in table
     assert "70" in table
+
+    
+def test_player_name_longer_than_14_characters_is_truncated():
+    scores = [{"player": "A" * 20, "score": 100, "game": "Tetris"}]
+    result = scoreboard.format_scoreboard(scores)
+    assert "A" * 14 in result
+    assert "A" * 15 not in result
+
+
+def test_game_name_longer_than_14_characters_is_truncated():
+    scores = [{"player": "Alex", "score": 100, "game": "B" * 20}]
+    result = scoreboard.format_scoreboard(scores)
+    assert "B" * 14 in result
+    assert "B" * 15 not in result
+
+
+def test_missing_player_or_score_key_does_not_raise():
+    scores = [
+        {"game": "Tetris"}, 
+        {"player": "Bob"}    
+    ]
+    try:
+        scoreboard.format_scoreboard(scores)
+    except Exception as e:
+        assert False, f"format_scoreboard raised an exception with missing keys: {e}"
+
+
+def test_several_entries_are_numbered_in_order():
+    scores = [
+        {"player": "Alice", "score": 300, "game": "Tetris"},
+        {"player": "Bob", "score": 200, "game": "Tetris"},
+        {"player": "Charlie", "score": 100, "game": "Tetris"},
+    ]
+    result = scoreboard.format_scoreboard(scores)
+    assert "1" in result
+    assert "2" in result
+    assert "3" in result
+
+
+def test_header_row_is_present():
+    scores = [{"player": "Alice", "score": 100, "game": "Tetris"}]
+    result = scoreboard.format_scoreboard(scores)
+    assert "Player" in result or "Score" in result

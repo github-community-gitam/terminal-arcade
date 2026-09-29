@@ -30,7 +30,7 @@ git clone https://github.com/YOUR-USERNAME/terminal-arcade.git
 cd terminal-arcade
 
 # 2. Point at the original repo so you can stay up to date
-git remote add upstream https://github.com/github-community-gitam/terminal-arcade.git
+git remote add upstream https://github.com/pushpam2404/terminal-arcade.git
 
 # 3. There is no step 3. There is nothing to install.
 
@@ -121,16 +121,29 @@ python3 -m pytest        # all tests must pass
 python3 -m arcade        # and play your change, actually play it
 ```
 
-If you have ruff installed (optional):
+If you have ruff installed (entirely optional):
 
 ```bash
 python3 -m pip install ruff
-ruff format .
-ruff check .
+ruff format .          # tidies spacing and quotes
+ruff check . --fix     # fixes what it safely can
 ```
 
-CI runs exactly these. Running them locally takes 10 seconds and saves a round
-trip.
+### What can actually fail your pull request
+
+Only two things:
+
+1. **A test fails** — something in `tests/` broke.
+2. **A real bug is found** — an undefined variable, an unused import, a mutable
+   default argument. The check names the file and the line.
+
+**Formatting never blocks you.** Untidy spacing, single quotes instead of
+double, imports in the wrong order, a missing newline at the end of a file —
+these show up as suggestions in the log and are then ignored. Your pull request
+merges either way.
+
+This is deliberate. A first contribution should not be rejected by a robot over
+four spaces of whitespace.
 
 ### 6. Open the pull request
 

@@ -59,7 +59,7 @@ def run_game(game: ModuleType) -> None:
                 print(art.green("  Saved.\n"))
                 pause()
 
-        if confirm("  Wanna play again?"):
+        if confirm("  Want to play again?"):
             score = game.play()
         else:
             break

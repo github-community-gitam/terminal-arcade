@@ -29,7 +29,7 @@ git clone https://github.com/YOUR-USERNAME/terminal-arcade.git
 cd terminal-arcade
 
 # 2. Point at the original repo so you can stay up to date
-git remote add upstream https://github.com/pushpam2404/terminal-arcade.git
+git remote add upstream https://github.com/github-community-gitam/terminal-arcade.git
 
 # 3. There is no step 3. There is nothing to install.
 
@@ -247,6 +247,6 @@ In short: be kind, assume good faith, and remember that the person asking a
 
 | Name | GitHub | Looks after |
 |---|---|---|
-| <!-- FILL: your name --> | <!-- FILL: @your-handle --> | Everything |
+| Pushpam Raj Satyarthi | [@pushpam2404](https://github.com/pushpam2404) | Everything |
 
 **Domain:** OS & DevX

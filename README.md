@@ -194,4 +194,3 @@ Maintained by **OS & DevX**, GITHUB Community GITAM.
 ## License
 
 [MIT](LICENSE)
-# protection test, will not be kept
